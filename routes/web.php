@@ -23,15 +23,15 @@ Route::get('about', function () {
     .'<br>laravel,emang keren';
 });
 
-Route::get('profile', function () {
-    $nama ="Risma Septiani Fadila";
+Route::get('profilee', function () {
+    $nama ="Risma Septiani Fadilaa";
     return "Nama saya adalah <b>$nama";
 
 });
 
 //route parameter
 Route::get('post/{id}', function ($a) {
-    return "Halaman post ke- <b>$a";
+    return view('post',['post' => $a]);
 
 });
 
@@ -39,6 +39,11 @@ Route::get('bio/{nama}/{umur}/{alamat}', function ($a,$b,$c) {
     return "Nama : $a <br>
             Umur : $b <br>
             Alamat :$c";
+
+});
+
+Route::get('bioo/{nama}/{umur}/{alamat}', function ($a,$b,$c) {
+    return view('bio',compact('a','b','c'));
 
 });
 
@@ -70,3 +75,69 @@ Route::get('pesan/{makanan?}/{minuman?}/{cemilan?}', function ($a = null,$b= nul
     return $pesan;
 });
 
+//route basic
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('profile', function () {
+    $nama ="Risma Septiani Fadila";
+    return view('profile',compact('nama'));
+//array assosiatof ["namaa" => $mood]
+});
+
+Route::get('biodata', function () {
+    $nama ="Risma Septiani Fadila";
+    $umur ="18 tahun";
+    $alamat ="Jl.Ciparay tengah";
+    $sekolah ="Smk Assalaam Bandung";
+    $kelas ="XII RPL 1";
+    $hobi ="Memasak";
+    return view('biodata',compact('nama','umur','alamat','sekolah','kelas','hobi'));
+});
+
+Route::get('blog', function(){
+    $posts =[
+        ['id' => 1, 'title' => 'Lorem Ipsum 1','content' => 'Content kesatu'],
+        ['id' => 2, 'title' => 'Lorem Ipsum 2','content' => 'Content kedua'],
+        ['id' => 3, 'title' => 'Lorem Ipsum 3','content' => 'Content ketiga']
+    ];
+    return view ('blog' , compact('posts'));
+});
+
+Route::get('format', function(){
+    $data =[
+        ['id' => 1, 'name' => 'Risma','username' => 'risma','email' => 'risma@gmail.com' ,'alamat' => 'bandung','mapel'=>[
+            'mapel1' => 'Matematika',
+            'mapel2' => 'Fisika',
+            'mapel3' => 'Kimia'
+
+        ]],
+        ['id' => 2, 'name' => 'Lira','username' => 'lira','email' => 'lira@gmail.com' ,'alamat' => 'bandung','mapel'=>[
+            'mapel1' => 'Matematika',
+            'mapel2' => 'Fisika',
+            'mapel3' => 'Kimia'
+
+        ]],
+        ['id' => 3, 'name' => 'Seni','username' => 'seni','email' => 'seni@gmail.com' ,'alamat' => 'bandung','mapel'=>[
+            'mapel1' => 'Matematika',
+            'mapel2' => 'Fisika',
+            'mapel3' => 'Kimia'
+
+        ]],
+        ['id' => 4, 'name' => 'kayla','username' => 'kayla','email' => 'kayla@gmail.com' ,'alamat' => 'bandung','mapel'=>[
+            'mapel1' => 'Matematika',
+            'mapel2' => 'Fisika',
+            'mapel3' => 'Kimia'
+
+        ]],
+        ['id' => 5, 'name' => 'Syifa','username' => 'syifa','email' => 'syifa@gmail.com' ,'alamat' => 'bandung','mapel'=>[
+            'mapel1' => 'Matematika',
+            'mapel2' => 'Fisika',
+            'mapel3' => 'Kimia'
+
+        ]],
+
+    ];
+    return view ('format' , compact('data'));
+});
