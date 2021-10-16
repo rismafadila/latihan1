@@ -141,3 +141,53 @@ Route::get('format', function(){
     ];
     return view ('format' , compact('data'));
 });
+
+    Route::get('/testmodel', function() {
+    $query = App\Models\Post::all() ;
+    return $query;
+    });
+
+    Route::get('/testmodel2', function() {
+    $query = App\Models\Post::find(1) ;
+    return $query;
+        });
+
+    Route::get('/testmodel3', function() {
+    $query = App\Models\Post::where('title','like','%Juz Amma%')->get();
+    return $query;
+            });
+
+    Route::get('/testmodel4', function() {
+    $post = App\Models\Post::find(1);
+    $post->title = "hijaiyah";
+    $post->save();
+    return $post;
+
+                });
+
+    Route::get('/testmodel5', function() {
+    $post = App\Models\Post::find(1);
+    $post->delete();
+                   // check data di database
+
+                    });
+
+    Route::get('/testmodel6', function() {
+    $post = new App\Models\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
+                        // check record baru di database
+
+                        });
+
+                        Route::get('/dosen', function() {
+                            $query = App\Models\dosen::all();
+                            return view('dosens',compact('query'));
+                                    });
+
+                                    Route::get('/mhs', function() {
+                                        $query = App\Models\mahasiswa::all();
+                                        return view('mahasiswas',compact('query'));
+                                                });

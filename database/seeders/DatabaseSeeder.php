@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        $this->call(PostsTableSeeder::class);
-        $this->call(biodatasTableSeeder::class);
+    {$this->call(dosenSeeder::class);
+        $this->call(PostsSeeder::class);
+        $this->command->info("Sample Data Sudah Terisi");
     }
 }

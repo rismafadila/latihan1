@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB;
-class PostsTableSeeder extends Seeder
+class PostsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,9 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $posts = [
-            ['title'=>'Tips Cepat Nikah', 'content'=>'lorem ipsum'],
-            ['title'=>'Haruskah Menunda Nikah?', 'content'=>'lorem ipsum'],
-            ['title'=>'Membangun Visi Misi Keluarga', 'content'=>'lorem ipsum']
+            ['title'=>'Tajwid Menyenangkan', 'content'=>'lorem ipsum'],
+            ['title'=>'Bacaan Sholat', 'content'=>'lorem ipsum'],
+            ['title'=>'Juz Amma', 'content'=>'lorem ipsum']
             ];
             // masukkan data ke database
             DB::table('posts')->insert($posts);

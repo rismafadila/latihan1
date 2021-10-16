@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBiodatasTable extends Migration
+class CreateDosensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateBiodatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('biodatas', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title')->unique();
-            $table->string('content');
+        Schema::create('dosens', function (Blueprint $table) {
+            $table->id();
+            $table->string('nipd')->unique();
+            $table->string('nama');
+            $table->string('alamat');
             $table->timestamps();
-            });
+        });
     }
 
     /**
@@ -28,6 +29,6 @@ class CreateBiodatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('biodatas');
+        Schema::dropIfExists('dosens');
     }
 }
