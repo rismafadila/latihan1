@@ -11,9 +11,17 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {$this->call(dosenSeeder::class);
-        $this->call(PostsSeeder::class);
-        $this->command->info("Sample Data Sudah Terisi");
+    public function run(){
+    // {$this->call(dosenSeeder::class);
+
+    //     $this->call(PostsSeeder::class);
+    //     $this->command->info("Sample Data Sudah Terisi");
+        $this->call(HeroSeeder::class);
+        $this->call(BarangSeeder::class);
+        $this->call(PesananSeeder::class);
+        $this->call(PembelianSeeder::class);
+        $this->call(PembeliSeeder::class);
+        $this->call(SuplierSeeder::class);
+
     }
 }

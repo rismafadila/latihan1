@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function () {
-    return '<h1>Hallo</h1>'
-    .'selamat datang di webapp saya'
-    .'<br>laravel,emang keren';
-});
+// Route::get('about', function () {
+//     return '<h1>Hallo</h1>'
+//     .'selamat datang di webapp saya'
+//     .'<br>laravel,emang keren';
+// });
 
 Route::get('profilee', function () {
     $nama ="Risma Septiani Fadilaa";
@@ -76,9 +77,9 @@ Route::get('pesan/{makanan?}/{minuman?}/{cemilan?}', function ($a = null,$b= nul
 });
 
 //route basic
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
 
 Route::get('profile', function () {
     $nama ="Risma Septiani Fadila";
@@ -191,3 +192,20 @@ Route::get('format', function(){
                                         $query = App\Models\mahasiswa::all();
                                         return view('mahasiswas',compact('query'));
                                                 });
+
+                                                Route::get('/test', [MyController::class,'test']);
+
+                                                Route::get('/hero', [MyController::class,'heroes']);
+
+                                                Route::get('/barang', [MyController::class,'barang']);
+
+                                                Route::get('/pesanan', [MyController::class,'pesanan']);
+
+                                                Route::get('/pembelian', [MyController::class,'pembelian']);
+
+                                                Route::get('/pembeli', [MyController::class,'pembeli']);
+
+                                                Route::get('/suplier', [MyController::class,'suplier']);
+
+
+
